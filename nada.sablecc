@@ -1,13 +1,4 @@
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// nada.sablecc	: nanoAda lexer/Parser for sablecc
-//
-//
-//  Created by Daryl  Posnett on Sat Jan 25 2020
-//  Copyright (c) 2004,2020 Daryl Posnett. All rights reserved.
-//
-// 	ECS140A, Winter 2020
-//  nada grammar version 0.01
-//
+
 Package nada;
 
 //''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
