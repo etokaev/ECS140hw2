@@ -1,16 +1,16 @@
 package nada.visitors;
 import nada.analysis.*;
-import nada.lexor.*;
+import nada.lexer.*;
 import nada.node.*;
 import java.util.*;
 
-class DebugAdaptor extends DepthFirstAdaptor
+public class DebugAdapter extends DepthFirstAdapter
 {
-  public void defaulIn(Node node)
+  public void defaultIn(Node node)
   {
     System.err.println("IN:" + node.getClass().getSimpleName() + ":" + node);
   }
-  public void defaulOut(Node node){
+  public void defaultOut(Node node){
   System.err.println("OUT:" + node.getClass().getSimpleName() + ":" + node);
 }
 }
