@@ -1,4 +1,5 @@
 package nada.visitors;
+
 import nada.analysis.*;
 import nada.lexer.*;
 import nada.node.*;
@@ -14,4 +15,4 @@ public class DebugAdapter extends DepthFirstAdapter
   System.err.println("OUT:" + node.getClass().getSimpleName() + ":" + node);
 }
 }
-:w:
+

@@ -1,16 +1,32 @@
 package nada.visitors;
+
 import nada.analysis.*;
 import nada.lexer.*;
 import nada.node.*;
 import java.util.*;
 
 
-class codeGeneration extends DepthFirstAdaptor
+public class CodeGeneration extends DepthFirstAdapter 
 {
-  public void caseASubprogramBody(ASubprogramBody node)
-  {
-        inASubprogramBody(node);
 
+  public void caseStart(Start node)
+  {
+    inStart(node);
+    System.out.print("public class ");
+    System.out.println(" {");
+    node.getPNada().apply(this);
+    node.getEOF().apply(this);
+    outStart(node);
+
+  
+  }
+
+
+    public void caseASubprogramBody(ASubprogramBody node)
+
+    {
+        inASubprogramBody(node);
+        System.out.println(node.getIdent());
         if(node.getSubprogramSpec() != null)
         {
             node.getSubprogramSpec().apply(this);
@@ -44,8 +60,10 @@ class codeGeneration extends DepthFirstAdaptor
             node.getSemi().apply(this);
         }
         outASubprogramBody(node);
+    }
+
  
-  }
+   
 }
 
 

@@ -7,6 +7,7 @@ import nada.node.*;
 
 public class DepthFirstAdapter extends AnalysisAdapter
 {
+
     public void inStart(Start node)
     {
         defaultIn(node);
@@ -52,6 +53,7 @@ public class DepthFirstAdapter extends AnalysisAdapter
         inANada(node);
         if(node.getSubprogramBody() != null)
         {
+            
             node.getSubprogramBody().apply(this);
         }
         outANada(node);
@@ -71,8 +73,8 @@ public class DepthFirstAdapter extends AnalysisAdapter
     public void caseASubprogramBody(ASubprogramBody node)
 
     {
-        System.out.println("We are here");
         inASubprogramBody(node);
+        System.out.println("here ");
         if(node.getSubprogramSpec() != null)
         {
             node.getSubprogramSpec().apply(this);
@@ -367,14 +369,22 @@ public class DepthFirstAdapter extends AnalysisAdapter
         inASubprogramSpec(node);
         if(node.getProc() != null)
         {
+          
+            System.out.println(node.getProc());
+            
             node.getProc().apply(this);
         }
         if(node.getIdent() != null)
         {
+            System.out.println(node.getIdent());
+
             node.getIdent().apply(this);
         }
         if(node.getFormalPart() != null)
         {
+
+            System.out.println(node.getFormalPart());
+
             node.getFormalPart().apply(this);
         }
         outASubprogramSpec(node);

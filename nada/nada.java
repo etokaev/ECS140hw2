@@ -13,9 +13,13 @@ public class nada {
 	public static void main(String[] arguments) {
 		try {
 
-               			new Parser(new Lexer(new PushbackReader(new BufferedReader(new FileReader(arguments[0])), 1024)))
-				.parse()
-				.apply(new CodeGeneration());
+               		
+
+           if (arguments.length == 2 && arguments[1].charAt(0) == 'D' ) {new Parser(new Lexer
+           (new PushbackReader(new BufferedReader(new FileReader(arguments[0])), 1024))).parse().apply(new DebugAdapter());} 
+           else if (arguments.length == 1) 
+           {new Parser(new Lexer(new PushbackReader(new BufferedReader(
+           new FileReader(arguments[0])), 1024))).parse().apply(new CodeGeneration());}
             
                   
 		} catch (ParserException e) {
