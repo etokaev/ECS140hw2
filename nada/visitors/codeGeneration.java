@@ -13,10 +13,11 @@ public class CodeGeneration extends DepthFirstAdapter
   {
     inStart(node);
     System.out.print("public class ");
-    System.out.println(" {");
     node.getPNada().apply(this);
     node.getEOF().apply(this);
+    System.out.println(" }");
     outStart(node);
+
 
   
   }
@@ -26,7 +27,7 @@ public class CodeGeneration extends DepthFirstAdapter
 
     {
         inASubprogramBody(node);
-        System.out.println(node.getIdent());
+    
         if(node.getSubprogramSpec() != null)
         {
             node.getSubprogramSpec().apply(this);
@@ -54,6 +55,7 @@ public class CodeGeneration extends DepthFirstAdapter
         if(node.getIdent() != null)
         {
             node.getIdent().apply(this);
+
         }
         if(node.getSemi() != null)
         {
@@ -61,6 +63,60 @@ public class CodeGeneration extends DepthFirstAdapter
         }
         outASubprogramBody(node);
     }
+
+
+
+  public void caseASubprogramSpec(ASubprogramSpec node)
+    {
+        inASubprogramSpec(node);
+        if(node.getProc() != null)
+        {
+                    
+            node.getProc().apply(this);
+        }
+        if(node.getIdent() != null)
+        {
+            System.out.print(node.getIdent());
+            System.out.println("{");
+            System.out.println("  public static void main(String[] args) {");
+
+            node.getIdent().apply(this);
+        }
+        if(node.getFormalPart() != null)
+        {
+
+            node.getFormalPart().apply(this);
+        }
+        outASubprogramSpec(node);
+    }
+
+   public void caseAWritelnWriteStmt(AWritelnWriteStmt node)
+    {
+        inAWritelnWriteStmt(node);
+        System.out.print("System.out.println(");
+        if(node.getWriteln() != null)
+        {
+            node.getWriteln().apply(this);
+        }
+        if(node.getLParen() != null)
+        {
+            node.getLParen().apply(this);
+        }
+        if(node.getWriteExpr() != null)
+        {
+            node.getWriteExpr().apply(this);
+        }
+        if(node.getRParen() != null)
+        {
+            node.getRParen().apply(this);
+        }
+        if(node.getSemi() != null)
+        {
+            node.getSemi().apply(this);
+        }
+        outAWritelnWriteStmt(node);
+    }
+
 
  
    
