@@ -14,4 +14,4 @@ public class DebugAdapter extends DepthFirstAdapter
   System.err.println("OUT:" + node.getClass().getSimpleName() + ":" + node);
 }
 }
-
+:w:

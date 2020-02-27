@@ -69,7 +69,9 @@ public class DepthFirstAdapter extends AnalysisAdapter
 
     @Override
     public void caseASubprogramBody(ASubprogramBody node)
+
     {
+        System.out.println("We are here");
         inASubprogramBody(node);
         if(node.getSubprogramSpec() != null)
         {

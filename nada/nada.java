@@ -8,12 +8,16 @@ import nada.analysis.*;
 import nada.visitors.*;
 import java.io.*;
 import java.util.*;
+
 public class nada {
 	public static void main(String[] arguments) {
 		try {
-			new Parser(new Lexer(new PushbackReader(new BufferedReader(new FileReader(arguments[0])), 1024)))
+
+               			new Parser(new Lexer(new PushbackReader(new BufferedReader(new FileReader(arguments[0])), 1024)))
 				.parse()
-				.apply(new DebugAdapter());
+				.apply(new CodeGeneration());
+            
+                  
 		} catch (ParserException e) {
 			System.out.println("\nPARSER ERROR: " + e.getMessage());
 		} catch (LexerException e) {
