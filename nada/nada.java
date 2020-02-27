@@ -31,7 +31,7 @@ public class nada {
         
 			Scanner input = new Scanner(System.in);
 			//System.out.print("Enter the desired name of your file: ");
-			String fileName = args[0].substring(0,args[0].indexOf("."));
+			String fileName = arguments[0].substring(0,arguments[0].indexOf("."));
 			fileName = fileName + ".java";
 		
 			PrintStream fileOut = new PrintStream(fileName);
@@ -51,9 +51,6 @@ public class nada {
 		} catch (Exception e) {
 			System.out.println("\nGENERAL ERROR: " + e.getMessage() + "\n\n");
 			e.printStackTrace(System.out);
-		} catch (IOException e){
-			System.out.println("an error occured.");
-			e.printStackTrace();
 		}
 	}
 }
