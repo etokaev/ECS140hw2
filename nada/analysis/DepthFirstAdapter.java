@@ -74,7 +74,6 @@ public class DepthFirstAdapter extends AnalysisAdapter
 
     {
         inASubprogramBody(node);
-        System.out.println("here ");
         if(node.getSubprogramSpec() != null)
         {
             node.getSubprogramSpec().apply(this);
@@ -370,20 +369,18 @@ public class DepthFirstAdapter extends AnalysisAdapter
         if(node.getProc() != null)
         {
           
-            System.out.println(node.getProc());
-            
+                
             node.getProc().apply(this);
         }
         if(node.getIdent() != null)
         {
-            System.out.println(node.getIdent());
+         //   System.out.println(node.getIdent());
 
             node.getIdent().apply(this);
         }
         if(node.getFormalPart() != null)
         {
-
-            System.out.println(node.getFormalPart());
+          
 
             node.getFormalPart().apply(this);
         }
